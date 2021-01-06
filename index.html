@@ -28,70 +28,7 @@
   <link rel="stylesheet" type="text/css" href="./assets/css/menu/vertical-menu.min.css">
   <!-- END: Page CSS-->
   <!-- BEGIN: Custom CSS-->
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-  <style type="text/css">
-    .qty .count {
-    color: #000;
-    display: inline-block;
-    vertical-align: top;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 15px;
-    padding: 0 2px;
-    min-width: 12px;
-    text-align: center;
-}
-.qty .plus {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    color: white;
-    width: 15px;
-    height: 15px;
-    font: 15px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    }
-.qty .minus {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    color: white;
-    width: 15px;
-    height: 15px;
-    font: 15px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    background-clip: padding-box;
-}
-div.qty {
-    text-align: center !important;
-}
-.minus:hover{
-    background-color: #717fe0 !important;
-}
-.plus:hover{
-    background-color: #717fe0 !important;
-}
-/*Prevent text selection*/
-.qty span{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-.qty input{  
-    border: 0;
-    width: 2%;
-}
-.qty input::-webkit-outer-spin-button,
-.qty input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.qty input:disabled{
-    background-color:white;
-}
-  </style>
+  <link rel="stylesheet" type="text/css" href="./assets/css/all.css">
   <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
@@ -230,9 +167,9 @@ div.qty {
               <div class="card">
                 <div class="row">
                   <div class="col-lg-4 col-4">
-                    <div class="card-body">
-                      <div class="form-group">
-                        <select class="form-control" id="basicSelect">
+                    <div class="card-body pb-0 pt-1">
+                      <div class="form-group mb-0">
+                        <select class="form-control form-control-sm" id="basicSelect">
                           <option disabled="disabled" selected>Select Category</option>
                           <option>IT</option>
                           <option>Blade Runner</option>
@@ -244,85 +181,59 @@ div.qty {
                   <div class="col-lg-4 col-4">
                   </div>
                   <div class="col-lg-4 col-4">
-                    <div class="card-body">
-                      <div class="form-group">
-                        <input type="text" name="" class="form-control" id="search" placeholder="search" />
+                    <div class="card-body pb-0 pt-1">
+                      <div class="form-group mb-0">
+                        <input type="text" name="" class="form-control form-control-sm" id="search" placeholder="search" />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row container">
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                <hr>
+                <div id="body-list-item">
+                  <div class="row container">
+                    <div class="col-3">
+                      <div class="card">
+                        <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                    <div class="col-3">
+                      <div class="card">
+                        <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                    <div class="col-3">
+                      <div class="card">
+                        <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                    <div class="col-3">
+                      <div class="card">
+                        <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="row container">
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card">
-                      <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center">Buy</a>
+                    <div class="col-3">
+                      <div class="card">
+                        <img class="card-img-top" src="./assets/img/04.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <a href="javascript:void(0)" class="btn btn-outline-danger waves-effect text-center btn-sm">Buy</a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -333,34 +244,175 @@ div.qty {
               <div class="card">
                 <h4 class="card-title mt-2 mb-0 ml-2">Orders</h4>
                 <hr>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <div class="card" style="width: 6rem;">
-                        <img class="card-img-top" src="./assets/img/02.jpg" alt="Card image cap">
-                        <div class="card-body px-0">
-                          <p class="card-title">Card title</p>
+                <div id="cart-item" class="card-body py-1">
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
                         </div>
                       </div>
                     </div>
-                    <div class="col">
-                      <div class="qty mt-5">
-                        <span class="minus bg-dark">-</span>
-                        <input type="number" class="count" name="qty" value="1">
-                        <span class="plus bg-dark">+</span>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="col">5.000,00</div>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pb-1">
+                    <div class="col-2 px-0">
+                      <img class="item-img img-fluid rounded" alt="Responsive image" src="./assets/img/02.jpg">
+                    </div>
+                    <div class="col-5 ">
+                      <span class="item-name">Buah Pedas Manis pait</span>
+                    </div>
+                    <div class="col-5 mx-auto">
+                      <div class="row text-center">
+                        <div class="col qty px-auto ">
+                          <span class="minus bg-dark">-</span>
+                          <input type="number" class="count" name="qty" value="1">
+                          <span class="plus bg-dark">+</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-right">
+                          <span class="item-price">5.000,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer py-0">
+                  <div class="row py-1">
+                    <div class="col text-left">
+                      <span>TOTAL</span>
+                    </div>
+                    <div class="col text-right">
+                      <span class="font-weight-bold">200.000,00</span>
+                    </div>
                   </div>
                   <div class="row">
-                    <div class="col">Buah</div>
-                    <div class="col">1</div>
-                    <div class="col">5.000,00</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">Buah</div>
-                    <div class="col">1</div>
-                    <div class="col">5.000,00</div>
+                    <div class="col text-center">
+                      <button type="button" class="btn btn-success">Checkout</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -381,6 +433,7 @@ div.qty {
   <script src="./assets/js/app-menu.min.js"></script>
   <script src="./assets/js/app.min.js"></script>
   <script src="./assets/js/customizer.min.js"></script>
+  <script src="./assets/js/all.js"></script>
   <!-- END: Theme JS-->
   <!-- BEGIN: Page JS-->
   <!-- END: Page JS-->
