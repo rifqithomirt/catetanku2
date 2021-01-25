@@ -27,6 +27,7 @@ html.loading(data-textdirection='ltr' lang='en')
     link(rel='stylesheet' type='text/css' href='/assets/css/dataTables.bootstrap4.min.css')
     link(rel='stylesheet' type='text/css' href='/assets/css/responsive.bootstrap4.min.css')
     link(rel='stylesheet' type='text/css' href='/assets/css/buttons.bootstrap4.min.css')
+    link(rel='stylesheet' type='text/css' href='/assets/css/jquery-confirm.css')
     // BEGIN: Page CSS
     link(rel='stylesheet' type='text/css' href='/assets/css/menu/vertical-menu.min.css')
     // END: Page CSS
@@ -36,7 +37,7 @@ html.loading(data-textdirection='ltr' lang='en')
     // END: Custom CSS
     // END: Head
     // BEGIN: Body
-    body.vertical-layout.vertical-menu-modern.navbar-floating.footer-static(data-open='click' data-menu='vertical-menu-modern' data-col='')
+    body.vertical-layout.vertical-menu-modern.navbar-floating.footer-static.menu-collapsed(data-open='click' data-menu='vertical-menu-modern' data-col='')
       // BEGIN: Header
       nav.header-navbar.navbar.navbar-expand-lg.align-items-center.floating-nav.navbar-light.navbar-shadow
         .navbar-container.d-flex.content
@@ -45,15 +46,6 @@ html.loading(data-textdirection='ltr' lang='en')
               li.nav-item
                 a.nav-link.menu-toggle(href='javascript:void(0);')
                   i.ficon(data-feather='menu')
-            ul.nav.navbar-nav
-              li.nav-item.d-none.d-lg-block
-                a.nav-link.bookmark-star
-                  i.ficon.text-warning(data-feather='star')
-                .bookmark-input.search-input
-                  .bookmark-input-icon
-                    i(data-feather='search')
-                  input.form-control.input(type='text' placeholder='Bookmark' tabindex='0' data-search='search')
-                  ul.search-list.search-list-bookmark
           ul.nav.navbar-nav.align-items-center.ml-auto
             li.nav-item.d-none.d-lg-block
               a.nav-link.nav-link-style
@@ -122,21 +114,29 @@ html.loading(data-textdirection='ltr' lang='en')
                   a.d-flex.align-items-center(href='/pos/')
                     i(data-feather='circle')
                     span.menu-item.text-truncate POS
-                li
-                  a.d-flex.align-items-center(href='/invoice/')
-                    i(data-feather='circle')
-                    span.menu-item.text-truncate Invoice
+                //li
+                //  a.d-flex.align-items-center(href='/invoice/')
+                //    i(data-feather='circle')
+                //    span.menu-item.text-truncate Invoice
                 li
                   a.d-flex.align-items-center(href='/products/')
                     i(data-feather='circle')
-                    span.menu-item.text-truncate Products & Services
+                    span.menu-item.text-truncate Products
+                li
+                  a.d-flex.align-items-center(href='/categories/')
+                    i(data-feather='circle')
+                    span.menu-item.text-truncate Categories
             li.nav-item
               a.d-flex.align-items-center(href='#')
                 i(data-feather='file-text')
                 span.menu-title.text-truncate Purchase
               ul.menu-content
                 li
-                  a.d-flex.align-items-center(href='/pos/')
+                  a.d-flex.align-items-center(href='/retur/')
+                    i(data-feather='circle')
+                    span.menu-item.text-truncate Retur
+                li
+                  a.d-flex.align-items-center(href='/bills/')
                     i(data-feather='circle')
                     span.menu-item.text-truncate Bills
                 li
@@ -147,13 +147,9 @@ html.loading(data-textdirection='ltr' lang='en')
               span REPORTS
               i(data-feather='more-horizontal')
             li.nav-item
-              a.d-flex.align-items-center(href='app-file-manager.html')
+              a.d-flex.align-items-center(href='/journal')
                 i(data-feather='save')
-                span.menu-title.text-truncate(data-i18n='File Manager') Journals
-            li.nav-item
-              a.d-flex.align-items-center(href='app-file-manager.html')
-                i(data-feather='save')
-                span.menu-title.text-truncate(data-i18n='File Manager') Cash Flow
+                span.menu-title.text-truncate Journal Sales
       // END: Main Menu
       // BEGIN: Content
       .app-content.content
@@ -176,6 +172,7 @@ html.loading(data-textdirection='ltr' lang='en')
             script(src='/assets/js/custom-script.min.js')
 
             script(src='/assets/js/jquery.dataTables.min.js')
+            script(src='/assets/js/jquery-confirm.js')
             script(src='/assets/js/datatables.bootstrap4.min.js')
             script(src='/assets/js/dataTables.responsive.min.js')
             script(src='/assets/js/responsive.bootstrap4.js')
@@ -186,6 +183,10 @@ html.loading(data-textdirection='ltr' lang='en')
             script(src='/assets/js/jszip.min.js')
             script(src='/assets/js/pdfmake.min.js')
             script(src='/assets/js/vfs_fonts.js')
+            script(src='/assets/js/webcam-easy.min.js')
+            script(src='/assets/js/jquery.mask.min.js')
+            
+            
 
             script(src='/assets/js/require.js')
             script(src= dir)

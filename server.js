@@ -1,4 +1,5 @@
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const pug = require('pug');
@@ -26,57 +27,100 @@ var mimeTypes = {
   '.otf': 'application/font-otf',
   '.wasm': 'application/wasm'
 };
-http.createServer(function (request, response) {
-  var filePath = request.url;
-  var extname = String(path.extname(filePath)).toLowerCase();
 
-  var contentType = mimeTypes[extname] || 'application/octet-stream';
-  if (filePath.split('.').length > 1) {
-    filePath =  path.join(__dirname , filePath);
-    filePath = filePath.split("?")[0];
-    console.log(filePath, request.url)
-    
-    fs.readFile(filePath, function (error, content) {
-      if (error) {
 
-        response.writeHead(500);
-        response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-
-      } else {
+https.createServer({
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem'),
+  passphrase: '4kuG4kr0h'
+}, function (request, response) {
+  if (request.method.toLowerCase() == 'post') {
+    var data = '';
+    request.on('data', chunk => {
+      data += chunk;
+    })
+    request.on('end', () => {
+      
+      var obj = JSON.parse(data)
+      
+      var base64String = obj.base64;
+      var base64Image = base64String.split(';base64,').pop();
+      fs.writeFile( __dirname + `/upload/${obj.filename}.png`, base64Image, {
+        encoding: 'base64'
+      }, function (err) {
+        console.log(`/upload/${obj.filename}.png`)
+        console.log( err, 'File created');
         response.writeHead(200, {
-          'Content-Type': contentType
+          'Content-Type': 'plain/text'
         });
-        response.end(content, 'utf-8');
-      }
-    });
+        response.end(JSON.stringify({
+          'message': 'File Created'
+        }));
+      });
+    })
   } else {
-    
-    if (request.url == '/login/') {
-      fs.readFile('./web/login.html', function (error, loginContent) {
+    var filePath = request.url;
+    filePath = filePath.split("?")[0];
+    var extname = String(path.extname(filePath)).toLowerCase();
+
+    var contentType = mimeTypes[extname] || 'application/octet-stream';
+    if (filePath.split('.').length > 1) {
+      filePath = path.join(__dirname, filePath);
+      console.log(filePath, request.url)
+
+      fs.readFile(filePath, function (error, content) {
         if (error) {
-          console.log(error)
-          fs.readFile('./404.html', function (error, content) {
-            response.writeHead(404, {
-              'Content-Type': 'text/html'
+          if( extname == '.jpg' || extname == '.png' ) {
+            filePath = path.join(__dirname, '/assets/img/gallery.png');
+            filePath = filePath.split("?")[0];
+            fs.readFile( filePath, function (error, content) {
+              response.writeHead(200, {
+                'Content-Type': contentType
+              });
+              response.end(content, 'utf-8');
             });
-            response.end(content, 'utf-8');
-          });
+          } else {
+            response.writeHead(404);
+            response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+          }
+
         } else {
-          //console.log(loginContent.toString())
+          console.log(contentType)
           response.writeHead(200, {
-            'Content-Type': 'text/html'
+            'Content-Type': contentType
           });
-          response.end(loginContent);
+          response.end(content, 'utf-8');
         }
       });
     } else {
-      response.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-      response.end(pug.render(templatePug, {
-        dir: path.join('/pages' + filePath, 'index.js'),
-        dircss: path.join('/pages' + filePath, 'index.css')
-      }));
+
+      if (request.url == '/login/') {
+        fs.readFile('./web/login.html', function (error, loginContent) {
+          if (error) {
+            console.log(error)
+            fs.readFile('./404.html', function (error, content) {
+              response.writeHead(404, {
+                'Content-Type': 'text/html'
+              });
+              response.end(content, 'utf-8');
+            });
+          } else {
+            //console.log(loginContent.toString())
+            response.writeHead(200, {
+              'Content-Type': 'text/html'
+            });
+            response.end(loginContent);
+          }
+        });
+      } else {
+        response.writeHead(200, {
+          'Content-Type': 'text/html'
+        });
+        response.end(pug.render(templatePug, {
+          dir: path.join('/pages' + filePath, 'index.js'),
+          dircss: path.join('/pages' + filePath, 'index.css')
+        }));
+      }
     }
   }
 }).listen(8125);

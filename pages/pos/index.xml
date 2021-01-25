@@ -1,176 +1,176 @@
-<div class="row">
-    <div class="col-md-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Horizontal Form</h4>
+<!-- Examples -->
+        <section id="card-demo-example">
+          <div class="row match-height">
+            <div class="col-md-8 col-8">
+              <div class="card">
+                <div class="row">
+                  <div class="col-lg-4 col-4">
+                    <div class="card-body pb-0 pt-1">
+                      <div class="form-group mb-0">
+                        <select class="form-control form-control-sm" id="categorySelect">
+                          <option disabled="disabled" selected>Select Category</option>
+                          <option value="all">All</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-4">
+                  </div>
+                  <div class="col-lg-4 col-4">
+                    <div class="card-body pb-0 pt-1">
+                      <div class="form-group mb-0">
+                        <input type="search" name="" class="form-control form-control-sm" id="search" placeholder="search" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div id="body-list-item">
+                  <div class="row container" id="item-cards">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-4">
+              <div class="card">
+                <h4 class="card-title mt-2 mb-0 ml-2">Orders</h4>
+                <hr>
+                <div id="cart-items" class="card-body py-1">
+                </div>
+                <div class="card-footer py-0">
+                  <div class="row py-1">
+                    <div class="col text-left">
+                      <span class="font-weight-bold">TOTAL</span>
+                    </div>
+                    <div class="col text-right">
+                      <span class="font-weight-bold totalshop">Rp. 0,-</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col text-center">
+                      <button type="button" class="btn btn-success" id="cartCheckout" data-toggle="modal" data-target="#checkoutModal">Checkout</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Modal -->
+  <div class="modal fade" id="checkoutModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Checkout</h4>
         </div>
-        <div class="card-body">
+        <div class="modal-body">
           <form class="form form-horizontal">
             <div class="row">
               <div class="col-12">
                 <div class="form-group row">
                   <div class="col-sm-3 col-form-label">
-                    <label for="first-name">First Name</label>
+                    <label for="customer">Customer</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" id="first-name" class="form-control" name="fname" placeholder="First Name" />
+                    <input type="text" id="customer" class="form-control" required />
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group row">
                   <div class="col-sm-3 col-form-label">
-                    <label for="email-id">Email</label>
+                    <label for="address">Address</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email" />
+                      <textarea class="form-control" id="address" rows="2"></textarea>
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group row">
                   <div class="col-sm-3 col-form-label">
-                    <label for="contact-info">Mobile</label>
+                    <label for="address">Description</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="number" id="contact-info" class="form-control" name="contact" placeholder="Mobile" />
+                      <textarea class="form-control" id="description" rows="2"></textarea>
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group row">
                   <div class="col-sm-3 col-form-label">
-                    <label for="password">Password</label>
+                    <label for="subtotal">Subtotal</label>
                   </div>
-                  <div class="col-sm-9">
-                    <input type="password" id="password" class="form-control" name="password" placeholder="Password" />
+                  <div class="col-sm-2 pr-0">
+                    <input type="text" id="unit" class="form-control" value="Rp." disabled="disabled" />
                   </div>
-                </div>
-              </div>
-              <div class="col-sm-9 offset-sm-3">
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1" />
-                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                  <div class="col-sm-7">
+                    <input type="text" id="subtotal" class="form-control text-right" data-inputmask-clearmaskonlostfocus="false"/>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-9 offset-sm-3">
-                <button type="reset" class="btn btn-primary mr-1">Submit</button>
-                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+              <div class="col-12">
+                <div class="form-group row">
+                  <div class="col-sm-3 col-form-label">
+                    <label for="discount">Discount</label>
+                  </div>
+                  
+                  <div class="col-sm-7">
+                    <input type="number" id="discount" class="form-control text-right" value=0 />
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <input type="text" id="unit" class="form-control" value="%" disabled="disabled" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group row">
+                  <div class="col-sm-3 col-form-label">
+                    <label for="total">Total</label>
+                  </div>
+                  <div class="col-sm-2 pr-0">
+                    <input type="text" id="unit" class="form-control" value="Rp." disabled="disabled" />
+                  </div>
+                  <div class="col-sm-7">
+                    <input type="text" id="total" class="form-control text-right" name="contact" disabled="disabled" />
+                  </div>
+                </div>
               </div>
             </div>
           </form>
         </div>
+        <div class="modal-footer">
+            <button type="button" id="printNota" class="btn btn-danger mr-1 d-none">Print Nota</button>
+            <button type="button" id="submit" class="btn btn-primary mr-1">Submit</button>
+            <button id="cancelCart" data-dismiss="modal" class="btn btn-outline-secondary">Cancel</button>
+        </div>
       </div>
+      
     </div>
-    <div class="col-md-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Horizontal Form with Icons</h4>
+  </div>
+        <!-- Examples -->
+
+         <div class="modal fade" id="modalPhoto" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Checkout</h4>
         </div>
-        <div class="card-body">
-          <form class="form form-horizontal">
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group row">
-                  <div class="col-sm-3 col-form-label">
-                    <label for="fname-icon">First Name</label>
-                  </div>
-                  <div class="col-sm-9">
-                    <div class="input-group input-group-merge">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i data-feather="user"></i></span>
-                      </div>
-                      <input
-                        type="text"
-                        id="fname-icon"
-                        class="form-control"
-                        name="fname-icon"
-                        placeholder="First Name"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group row">
-                  <div class="col-sm-3 col-form-label">
-                    <label for="email-icon">Email</label>
-                  </div>
-                  <div class="col-sm-9">
-                    <div class="input-group input-group-merge">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i data-feather="mail"></i></span>
-                      </div>
-                      <input
-                        type="email"
-                        id="email-icon"
-                        class="form-control"
-                        name="email-id-icon"
-                        placeholder="Email"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group row">
-                  <div class="col-sm-3 col-form-label">
-                    <label for="contact-icon">Mobile</label>
-                  </div>
-                  <div class="col-sm-9">
-                    <div class="input-group input-group-merge">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i data-feather="smartphone"></i></span>
-                      </div>
-                      <input
-                        type="number"
-                        id="contact-icon"
-                        class="form-control"
-                        name="contact-icon"
-                        placeholder="Mobile"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group row">
-                  <div class="col-sm-3 col-form-label">
-                    <label for="pass-icon">Password</label>
-                  </div>
-                  <div class="col-sm-9">
-                    <div class="input-group input-group-merge">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i data-feather="lock"></i></span>
-                      </div>
-                      <input
-                        type="password"
-                        id="pass-icon"
-                        class="form-control"
-                        name="contact-icon"
-                        placeholder="Password"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-9 offset-sm-3">
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck2" />
-                    <label class="custom-control-label" for="customCheck2">Remember me</label>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-9 offset-sm-3">
-                <button type="reset" class="btn btn-primary mr-1">Submit</button>
-                <button type="reset" class="btn btn-outline-secondary">Reset</button>
-              </div>
-            </div>
-          </form>
+        <div class="modal-body">
+          <video id="webcam" autoplay playsinline></video>
+          <canvas id="canvas" class="d-none"></canvas>
+          <div id="capturedImage" class="d-none"></div>
+        </div>
+        <div class="modal-footer">
+            <button id="capture" class="btn btn-primary mr-1">Capture</button>
+            <button data-dismiss="modal" class="btn btn-outline-secondary">Close</button>
         </div>
       </div>
+      
     </div>
   </div>

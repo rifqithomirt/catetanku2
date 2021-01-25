@@ -1,0 +1,31 @@
+div#body-list-item .card:hover {
+    cursor: pointer;
+  }
+
+div#cart-items img.item-img:hover {
+    cursor: pointer;
+}
+
+  .px-05 {
+      padding-right: 0.5rem !important;
+      padding-left: 0.5rem !important;
+  }
+  
+  .py-05 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.card-item-title {
+    font-size: 1rem !important;
+}
+
+.card-item-price {
+    font-size: 0.9rem !important;
+}
+
+
+video {
+    width: 100%;
+    height: auto;
+  }

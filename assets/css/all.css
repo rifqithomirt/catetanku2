@@ -84,7 +84,7 @@ span.item-price {
 
 #body-list-item {
   position: relative;
-  height: 600px;
+  height: 220px;
   overflow: auto;
 }
 
@@ -97,4 +97,16 @@ span.item-price {
   position: relative;
   height: 300px;
   overflow: auto;
+}
+
+div.card .card-item-title {
+  margin-bottom: 0.5rem;
+}
+
+div.card .card-item-image {
+  padding:0px;
+}
+
+div.card .card-item-body {
+  padding: 0.2rem;
 }
