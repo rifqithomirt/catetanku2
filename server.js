@@ -5,7 +5,7 @@ const path = require('path');
 const pug = require('pug');
 const jwt = require('jsonwebtoken');
 
-fs.readFile('./template.pug', function (error, content) {
+fs.readFile( __dirname +'/template.pug', function (error, content) {
   if (error) console.log(error)
   templatePug = content;
 });
@@ -30,8 +30,8 @@ var mimeTypes = {
 
 
 https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem'),
+  key: fs.readFileSync( __dirname + '/key.pem'),
+  cert: fs.readFileSync(  __dirname + '/cert.pem'),
   passphrase: '4kuG4kr0h'
 }, function (request, response) {
   if (request.method.toLowerCase() == 'post') {
@@ -95,10 +95,10 @@ https.createServer({
     } else {
 
       if (request.url == '/login/') {
-        fs.readFile('./web/login.html', function (error, loginContent) {
+        fs.readFile( __dirname + '/web/login.html', function (error, loginContent) {
           if (error) {
             console.log(error)
-            fs.readFile('./404.html', function (error, content) {
+            fs.readFile( __dirname + '/404.html', function (error, content) {
               response.writeHead(404, {
                 'Content-Type': 'text/html'
               });

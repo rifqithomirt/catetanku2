@@ -8,7 +8,7 @@ requirejs(['/assets/js/uuid.min.js'],
       var sql = `SELECT (catetanku.categories.id) AS _id, column_json(catetanku.categories.doc) AS doc
       FROM catetanku.categories
       LIMIT 1000`;
-      var resQueryCategories = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+      var resQueryCategories = await R.aget(`https://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
       var objCategories = resQueryCategories.results.map(function (obj) {
         return obj.doc.Kategori;
       });
@@ -25,7 +25,7 @@ requirejs(['/assets/js/uuid.min.js'],
       WHERE column_get(catetanku.transactions.doc,"Transaction Code" AS CHAR) REGEXP "${ new Date().toISOString().substr(0,10).replace(/\-/g, '') }"
       GROUP BY column_get(catetanku.transactions.doc,"Transaction Code" AS CHAR)
       ORDER BY column_get(catetanku.transactions.doc,"Transaction Code" AS CHAR)`;
-      var resQueryTransactions = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+      var resQueryTransactions = await R.aget(`https://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
       if( resQueryTransactions.results.length > 0 ) {
         noUrut = resQueryTransactions.results[0]['doc']['Transaction Code'].split('-')[1] * 1 + 1;
       } else {
@@ -35,7 +35,7 @@ requirejs(['/assets/js/uuid.min.js'],
       var sql = `SELECT (catetanku.products.id) AS _id, column_json(catetanku.products.doc) AS doc
       FROM catetanku.products
       LIMIT 1000`;
-      var resQueryProducts = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+      var resQueryProducts = await R.aget(`https://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
       var objData = resQueryProducts.results.map(function (obj) {
         return obj.doc;
       })
@@ -267,7 +267,7 @@ requirejs(['/assets/js/uuid.min.js'],
 
         await R.asyncForEach(arrayDataCart, async function( obj ){
           var uid = uuid.v1();
-          var res = await R.apost(`http://${R.host}:${R.port}/webapi/transactions/${uid}`, '', obj);
+          var res = await R.apost(`https://${R.host}:${R.port}/webapi/transactions/${uid}`, '', obj);
           console.log(res);
         });
         $.alert({
