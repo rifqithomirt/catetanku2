@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 var sql = `SELECT (catetanku.products.id) AS _id, column_json(catetanku.products.doc) AS doc
             FROM catetanku.products
             LIMIT 1000`;
-                var resQueryProducts = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+                var resQueryProducts = await R.aget(`${R.protocol}://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
                 var objDataProducts = resQueryProducts.results.map(function (obj) {
                     return obj.doc;
                 })
@@ -248,7 +248,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                                     'Status': $('#status').val()
                                 }
                                 var id = uuid.v1();
-                                var resultNewDataProduct = await R.apost(`http://${R.host}:${R.port}/webapi/products/${id}`, '', newDataProduct)
+                                var resultNewDataProduct = await R.apost(`${R.protocol}://${R.host}:${R.port}/webapi/products/${id}`, '', newDataProduct)
                                 console.log(resultNewDataProduct)
                                 $.alert('Confirmed!');
                                 $('#modals-new-record').modal('hide');
@@ -339,7 +339,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             if (resQueryProducts.results.length == 0) {
                                 var id = uuid.v1();
                                 console.log(obj)
-                                var resultNewDataProduct = await R.apost(`http://${R.host}:${R.port}/webapi/products/${id}`, '', obj);
+                                var resultNewDataProduct = await R.apost(`${R.protocol}://${R.host}:${R.port}/webapi/products/${id}`, '', obj);
                                 if( resultNewDataProduct.message.indexOf('affectedRows') == -1 ) {    
                                     var dataOnLine = Object.values(obj)[0];
                                     if(indexError <= 10) strError += dataOnLine + ' --> is Error' + '<br>';

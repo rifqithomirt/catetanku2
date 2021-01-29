@@ -20,7 +20,7 @@ $(document).ready(async function () {
        INNER JOIN catetanku.products
        ON column_get(catetanku.transactions.doc,"Kode Product" AS CHAR) = column_get(catetanku.products.doc,"Kode Barang" AS CHAR)
     WHERE column_get(catetanku.transactions.doc,"Transaction Code" AS CHAR) = "${qs['transaction']}"`;
-    var resultTransactions = await R.aget(`http://${R.host}:${R.port}/webapi/query?sql=${encodeURIComponent(sql)}`, '', {});
+    var resultTransactions = await R.aget(`${R.protocol}://${R.host}:${R.port}/webapi/query?sql=${encodeURIComponent(sql)}`, '', {});
 
     console.log(resultTransactions)
     if (resultTransactions.results.length > 0) {

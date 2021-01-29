@@ -5,7 +5,7 @@ requirejs(['/assets/js/uuid.min.js'],
             $('#content-body-section').html(xml);
             var sql = `SELECT (catetanku.categories.id) AS _id, column_json(catetanku.categories.doc) AS doc
             FROM catetanku.categories`;
-            var resQueryProducts = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+            var resQueryProducts = await R.aget(`${R.protocol}://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
             if (resQueryProducts.results.length > 0) {
                 var objDataProducts = resQueryProducts.results.map(function (obj) {
                     return obj.doc;
@@ -197,7 +197,7 @@ requirejs(['/assets/js/uuid.min.js'],
                                     'Status': $('#status').val()
                                 }
                                 var id = uuid.v1();
-                                var resultNewDataProduct = await R.apost(`http://${R.host}:${R.port}/webapi/categories/${id}`, '', newDataProduct)
+                                var resultNewDataProduct = await R.apost(`${R.protocol}://${R.host}:${R.port}/webapi/categories/${id}`, '', newDataProduct)
                                 console.log(resultNewDataProduct)
                                 $.alert('Confirmed!');
                                 $('#modals-new-record').modal('hide');
@@ -212,7 +212,7 @@ requirejs(['/assets/js/uuid.min.js'],
                 $('#modals-new-record').on('hide.bs.modal', async function () {
                     var sql = `SELECT (catetanku.categories.id) AS _id, column_json(catetanku.categories.doc) AS doc
                     FROM catetanku.categories`;
-                    resQueryProducts = await R.aget(`http://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
+                    resQueryProducts = await R.aget(`${R.protocol}://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
                     if (resQueryProducts.results.length > 0) {
                         objDataProducts = resQueryProducts.results.map(function (obj) {
                             return obj.doc;
