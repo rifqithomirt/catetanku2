@@ -1,4 +1,4 @@
-.pem
-.crt
-.key
-.db
+*.pem
+*.crt
+*.key
+*.db
