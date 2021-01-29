@@ -30,8 +30,8 @@ var mimeTypes = {
 
 
 https.createServer({
-  key: fs.readFileSync( __dirname + '/key.pem'),
-  cert: fs.readFileSync(  __dirname + '/cert.pem'),
+  key: fs.readFileSync( process.env.KEY || (__dirname + '/key.pem') ),
+  cert: fs.readFileSync(  process.env.CERT || (__dirname + '/cert.pem') ),
   passphrase: '4kuG4kr0h'
 }, function (request, response) {
   if (request.method.toLowerCase() == 'post') {
