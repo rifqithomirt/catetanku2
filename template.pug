@@ -119,10 +119,6 @@ html.loading(data-textdirection='ltr' lang='en')
                 //    i(data-feather='circle')
                 //    span.menu-item.text-truncate Invoice
                 li
-                  a.d-flex.align-items-center(href='/products/')
-                    i(data-feather='circle')
-                    span.menu-item.text-truncate Products
-                li
                   a.d-flex.align-items-center(href='/categories/')
                     i(data-feather='circle')
                     span.menu-item.text-truncate Categories
@@ -131,6 +127,10 @@ html.loading(data-textdirection='ltr' lang='en')
                 i(data-feather='file-text')
                 span.menu-title.text-truncate Purchase
               ul.menu-content
+                li
+                  a.d-flex.align-items-center(href='/products/')
+                    i(data-feather='package')
+                    span.menu-item.text-truncate Products
                 li
                   a.d-flex.align-items-center(href='/retur/')
                     i(data-feather='circle')
@@ -185,6 +185,8 @@ html.loading(data-textdirection='ltr' lang='en')
             script(src='/assets/js/vfs_fonts.js')
             script(src='/assets/js/webcam-easy.min.js')
             script(src='/assets/js/jquery.mask.min.js')
+            script(src='/assets/js/xlsx.full.min.js')
+            
             
             
 
