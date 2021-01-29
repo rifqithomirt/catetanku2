@@ -33,6 +33,7 @@ html.loading(data-textdirection='ltr' lang='en')
     // END: Page CSS
     // BEGIN: Custom CSS
     link(rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/rifqithomirt/catetanku2/assets/css/all.css')
+    link(rel='stylesheet' type='text/css' href='/assets/css/apexcharts.css')
     link(rel='stylesheet' type='text/css' href= dircss)
     // END: Custom CSS
     // END: Head
@@ -99,7 +100,7 @@ html.loading(data-textdirection='ltr' lang='en')
         .main-menu-content
           ul#main-menu-navigation.navigation.navigation-main(data-menu='menu-navigation')
             li.nav-item
-              a.d-flex.align-items-center(href='index.html')
+              a.d-flex.align-items-center(href='/dashboard/')
                 i(data-feather='home')
                 span.menu-title.text-truncate Dashboards
             li.navigation-header
@@ -140,7 +141,7 @@ html.loading(data-textdirection='ltr' lang='en')
                     i(data-feather='circle')
                     span.menu-item.text-truncate Bills
                 li
-                  a.d-flex.align-items-center(href='/invoice/')
+                  a.d-flex.align-items-center(href='/vendor/')
                     i(data-feather='circle')
                     span.menu-item.text-truncate Vendors
             li.navigation-header
@@ -186,9 +187,7 @@ html.loading(data-textdirection='ltr' lang='en')
             script(src='https://cdn.jsdelivr.net/gh/rifqithomirt/catetanku2/assets/js/webcam-easy.min.js')
             script(src='https://cdn.jsdelivr.net/gh/rifqithomirt/catetanku2/assets/js/jquery.mask.min.js')
             script(src='https://cdn.jsdelivr.net/gh/rifqithomirt/catetanku2/assets/js/xlsx.full.min.js')
-            
-            
-            
+            script(src='/assets/js/apexcharts.min.js')
 
             script(src='https://cdn.jsdelivr.net/gh/rifqithomirt/catetanku2/assets/js/require.js')
             script(src= dir)

@@ -26,6 +26,13 @@
                 </div>
                 <hr>
                 <div id="body-list-item">
+                  <div class="row container text-center">
+                    <div class="col align-self-center">
+                      <div id="loadingItemCards" class="spinner-border text-center" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                    </div>
+                  </div>
                   <div class="row container" id="item-cards">
                     
                   </div>
@@ -153,7 +160,7 @@
   </div>
         <!-- Examples -->
 
-         <div class="modal fade" id="modalPhoto" role="dialog">
+  <div class="modal fade" id="modalPhoto" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->

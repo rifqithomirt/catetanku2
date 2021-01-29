@@ -30,8 +30,8 @@ var mimeTypes = {
 
 
 https.createServer({
-  key: fs.readFileSync(  (__dirname + process.env.KEY) || (__dirname + '/key.pem') ),
-  cert: fs.readFileSync(   (__dirname + process.env.CERT) || (__dirname + '/cert.pem') ),
+  key: fs.readFileSync(  process.env.KEY ? (__dirname + process.env.KEY) : (__dirname + '/key.pem') ),
+  cert: fs.readFileSync( process.env.CERT ? (__dirname + process.env.CERT) : (__dirname + '/cert.pem') ),
   passphrase: '4kuG4kr0h'
 }, function (request, response) {
   if (request.method.toLowerCase() == 'post') {
@@ -45,7 +45,7 @@ https.createServer({
       
       var base64String = obj.base64;
       var base64Image = base64String.split(';base64,').pop();
-      fs.writeFile( __dirname + `/upload/${obj.filename}.png`, base64Image, {
+      fs.writeFile( __dirname + `${obj.folder}/${obj.filename}.png`, base64Image, {
         encoding: 'base64'
       }, function (err) {
         console.log(`/upload/${obj.filename}.png`)

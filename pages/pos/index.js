@@ -29,8 +29,9 @@ requirejs(['/assets/js/uuid.min.js'],
       if( resQueryTransactions.results.length > 0 ) {
         noUrut = resQueryTransactions.results[0]['doc']['Transaction Code'].split('-')[1] * 1 + 1;
       } else {
-        noUrut = 0;
+        noUrut = 1;
       }
+
 
       var sql = `SELECT (catetanku.products.id) AS _id, column_json(catetanku.products.doc) AS doc
       FROM catetanku.products
@@ -38,9 +39,9 @@ requirejs(['/assets/js/uuid.min.js'],
       var resQueryProducts = await R.aget(`${R.protocol}://${R.host}:${R.port}/webapi/query/?sql=${ encodeURIComponent(sql)}`, '');
       var objData = resQueryProducts.results.map(function (obj) {
         return obj.doc;
-      })
+      });
 
-      var allStrItemLists = objData.map(function (obj) {
+      var allStrItemListsOri = objData.map(function (obj) {
         return `<div class="col-3">
                         <div class="card border-secondary" data-kode="${obj['Kode Barang']}">
                           <img class="card-img-top" data-kode="${obj['Kode Barang']}" src="/upload/${obj['Kode Barang']}.png" alt="Card image cap">
@@ -52,6 +53,33 @@ requirejs(['/assets/js/uuid.min.js'],
                         </div>
                       </div>`;
       }).join('');
+      
+      $('#item-cards').html(allStrItemListsOri);
+      $('#loadingItemCards').addClass('d-none');
+
+      $('#categorySelect').on('change', function(){
+        var selectedCategory = $(this).val();
+        if( selectedCategory == 'all' ) {
+          $('#item-cards').empty().html(allStrItemListsOri);
+        } else {
+          
+          var allStrItemLists = objData.filter(function( obj ){ return obj.Kategori == selectedCategory }).map(function (obj) {
+            console.log(obj, selectedCategory)
+            return `<div class="col-3">
+                            <div class="card border-secondary" data-kode="${obj['Kode Barang']}">
+                              <img class="card-img-top" data-kode="${obj['Kode Barang']}" src="/upload/${obj['Kode Barang']}.png" alt="Card image cap">
+                              <div class="card-body px-05 py-05">
+                                <h4 class="card-title card-item-title font-weight-bolder mb-0">${obj['Nama Barang']}</h4>
+                                <p class="card-item-berat-kadar card-text font-small-2 ">${obj['Berat']} gr / Kadar ${obj['Kadar']}</p>
+                                <h5 class="card-item-price  font-weight-bolder mb-0 text-right">Rp. ${R.numberToRupiah(obj['Harga'])},-</h5>
+                              </div>
+                            </div>
+                          </div>`;
+          }).join('');
+          console.log(selectedCategory, allStrItemLists)
+          $('#item-cards').empty().html(allStrItemLists);
+        }
+      })
 
       $('#cart-items').delegate('span.minus', 'click', function () {
         var minusElement = this;
@@ -91,7 +119,6 @@ requirejs(['/assets/js/uuid.min.js'],
         $(priceCartElement).text(`Rp. ${ R.numberToRupiah(multiplyPriceCartValue) }`);
         updateTotalPriceShop();
       })
-      $('#item-cards').html(allStrItemLists);
       findChildKode = function (kode) {
         var cartChilds = $('#cart-items').children();
         var cartChildsKodeElement = $(cartChilds).toArray().filter(element => {
@@ -188,14 +215,17 @@ requirejs(['/assets/js/uuid.min.js'],
       $('#modalPhoto').delegate('#capture', 'click', async function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var kode = $(this).data('kode');
+        var nowString = new Date().toISOString();
+        var transactionCode = nowString.substr(0,10).replace(/\-/g, '') + '-' + R.pad(noUrut, 4);
         console.log(button, kode)
         var picture = webcam.snap();
         await R.apost('/upload', '', {
           base64: picture,
-          filename: kode
+          filename: kode + '-' + transactionCode,
+          folder: '/upload'
         });
-        $(`img[data-kode="${kode}"]`).removeAttr("src").attr("src", `/upload/${kode}.png?timestamp=${new Date().getTime()}`);
-        $(`#item-cards img[data-kode="${kode}"]`).removeAttr("src").attr("src", `/upload/${kode}.png?timestamp=${new Date().getTime()}`);
+        $(`#cart-items img[data-kode="${kode}"]`).removeAttr("src").attr("src", `/upload/${kode}-${transactionCode}.png?timestamp=${new Date().getTime()}`);
+        //$(`#item-cards img[data-kode="${kode}"]`).removeAttr("src").attr("src", `/upload/${kode}.png?timestamp=${new Date().getTime()}`);
       });
 
 

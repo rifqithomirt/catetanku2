@@ -1,0 +1,30 @@
+{
+  "data":[{
+    "Kode Barang": "10001",
+    "Nama Barang": "Kalung Putih",
+    "Kategori": "Kalung",
+    "Berat": 2.1,
+    "Kadar": 500,
+    "Harga Dasar": 1000000,
+    "Harga": 2100000
+  },
+  {
+    "Kode Barang": "20001",
+    "Nama Barang": "Cincin Putih",
+    "Kategori": "Cincin",
+    "Berat": 2.1,
+    "Kadar": 500,
+    "Harga Dasar": 1000000,
+    "Harga": 2100000
+  },
+  {
+    "Kode Barang": "10002",
+    "Nama Barang": "Kalung Merah",
+    "Berat": 2.1,
+    "Kategori": "Kalung",
+    "Kadar": 500,
+    "Harga Dasar": 1000000,
+    "Harga": 2100000
+  }
+]
+}
