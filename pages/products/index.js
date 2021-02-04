@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     requirejs(['/assets/js/uuid.min.js'],
-        function (uuid) {
-
+        function (uuid, JsBarcode) {
+            createBarcode = JsBarcode;
             $(document).ready(async function () {
                 var xml = await R.agetFile('/pages/products/index.xml', '');
                 $('#content-body-section').html(xml);
@@ -93,7 +93,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                                             feather.icons["file-text"].toSvg({
                                                 class: "font-small-4 mr-50"
                                             }) +
-                                            'Details</a><a href="javascript:;" class="dropdown-item delete-record">' +
+                                            'Details</a><a href="javascript:;" class="dropdown-item" data-kode='+ t['Kode Barang'] +' data-toggle="modal" data-target="#modals-barcode-record">' +
+                                            feather.icons["file-text"].toSvg({
+                                                class: "font-small-4 mr-50"
+                                            }) +
+                                            'Barcode</a><a href="javascript:;" class="dropdown-item delete-record">' +
                                             feather.icons["trash-2"].toSvg({
                                                 class: "font-small-4 mr-50"
                                             }) +
@@ -230,6 +234,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         $("div.head-label").html('<h6 class="mb-0">Products</h6>');
                     }
 
+                });
+                console.log(JsBarcode)
+                $('#modals-barcode-record').on('show.bs.modal', async function (event) {
+                    var kode = $(event.relatedTarget).data('kode');
+                    //var kode = $(buttonParentTr).find('td:first-child')[0].text()
+                    //$('#barcode').JsBarcode(kode);
+                    $('#barcode').JsBarcode( kode, {
+                        format: "CODE39",
+                        lineColor: "#000",
+                        width:2,
+                        height:60,
+                        text: kode
+                      });
+                      //$('#barcodeText').empty().text( kode );
+
+                    //var recipient = button.data('whatever') 
                 });
 
                 $('#modals-new-record').delegate('#addSubmit', 'click', async function () {

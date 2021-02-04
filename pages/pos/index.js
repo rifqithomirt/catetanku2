@@ -4,6 +4,7 @@ requirejs(['/assets/js/uuid.min.js'],
       console.log(uuid)
       var xml = await R.agetFile('/pages/pos/index.xml', '');
       $('#content-body-section').html(xml);
+      
 
       var sql = `SELECT (catetanku.categories.id) AS _id, column_json(catetanku.categories.doc) AS doc
       FROM catetanku.categories
@@ -53,8 +54,9 @@ requirejs(['/assets/js/uuid.min.js'],
                         </div>
                       </div>`;
       }).join('');
-      
+      new PerfectScrollbar('#body-list-item');
       $('#item-cards').html(allStrItemListsOri);
+      
       $('#loadingItemCards').addClass('d-none');
 
       $('#categorySelect').on('change', function(){

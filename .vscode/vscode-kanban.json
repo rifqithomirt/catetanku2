@@ -1,0 +1,52 @@
+{
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "rifqi"
+      },
+      "category": "RINGKAS POS",
+      "creation_time": "2021-02-02T23:31:23.076Z",
+      "description": {
+        "content": "Select  Per Kategori (Seperti Rene) kemudian Print",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "prio": 1,
+      "references": [],
+      "title": "Penambahan Fitur Print Barcode"
+    },
+    {
+      "assignedTo": {
+        "name": "rifqi"
+      },
+      "category": "RINGKAS POS",
+      "creation_time": "2021-02-02T23:33:02.944Z",
+      "description": {
+        "content": "Penambahan Fitur\n1. Sign In\n2. Sign Up",
+        "mime": "text/markdown"
+      },
+      "id": "2",
+      "prio": 0,
+      "references": [],
+      "title": "Penambahan Authentication"
+    },
+    {
+      "assignedTo": {
+        "name": "rifqi"
+      },
+      "category": "RINGKAS POS",
+      "creation_time": "2021-02-02T23:34:13.930Z",
+      "description": {
+        "content": "Tracing fitur yang kurang",
+        "mime": "text/markdown"
+      },
+      "id": "3",
+      "prio": -1,
+      "references": [],
+      "title": "Meeting Simulasi POS"
+    }
+  ],
+  "in-progress": [],
+  "testing": [],
+  "done": []
+}
